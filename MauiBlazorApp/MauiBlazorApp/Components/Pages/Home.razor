@@ -1,0 +1,43 @@
+﻿@page "/"
+
+@inject IJSRuntime jsRuntime
+
+
+Blur event triggering count: @count
+
+Focus event triggering count: @focusCount
+
+<br />
+<br />
+
+
+
+<input @onblur="blurHandler" @onfocus="focusHandler" id="testinput" />
+
+
+
+@code {
+
+    public string Value { get; set; }
+
+    public class Person
+    {
+        public string Name { get; set; }
+    }
+
+    Person person = new Person();
+
+    public int count { get; set; }
+
+    public int focusCount { get; set; }
+    private void blurHandler()
+    {
+        count++;
+    }
+
+    private void focusHandler()
+    {
+        focusCount++;
+    }
+}
+
